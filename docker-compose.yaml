@@ -4,12 +4,12 @@ services:
   client: #name of the first service
     build: client # specify the directory of the Dockerfile
     ports:
-      - "4200:4200" # specify port forewarding
+      - '4200:4200' # specify port forewarding
     container_name: client-container
     restart: always
   server: #name of the second service
     build: server # specify the directory of the Dockerfile
     ports:
-      - "5000:5000" #specify ports forewarding
+      - '4001:4001' #specify ports forewarding
     container_name: server-container
     restart: always

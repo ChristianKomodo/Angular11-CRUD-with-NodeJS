@@ -9,8 +9,8 @@ const bodyParser = require('body-parser');
 const app = express();
 // db URL, ⚠️ use an environment variable for this
 const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/books';
-// get Port from .environment variable or use 5000
-const PORT = process.env.PORT || 5000;
+// get Port from .environment variable or use 4001
+const PORT = process.env.PORT || 4001;
 // routes
 const bookRoute = require('./routes/book');
 
@@ -25,21 +25,21 @@ app.use('/books', bookRoute);
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(DB_URL, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(
-    () => console.log('Database connected'),
-    (error) => console.log('Database error: ' + error)
-  );
+	.connect(DB_URL, {
+		useNewUrlParser: true,
+		useFindAndModify: false,
+		useUnifiedTopology: true,
+	})
+	.then(
+		() => console.log('Database connected'),
+		(error) => console.log('Database error: ' + error)
+	);
 
 // error handler
 app.use(function (err, req, res, next) {
-  console.error(err.message);
-  if (!err.statusCode) err.statusCode = 500;
-  res.status(err.statusCode).json({ error: err.message });
+	console.error(err.message);
+	if (!err.statusCode) err.statusCode = 500;
+	res.status(err.statusCode).json({ error: err.message });
 });
 
 app.listen(PORT, () => console.log(`App listening on port:${PORT}`));
