@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  getBooks,
-  addBook,
-  editBook,
-  deleteBook,
-  getBookById,
+	getBooks,
+	addBook,
+	editBook,
+	deleteBook,
+	getBookById,
 } = require('../controllers/book');
 
 // Get Book

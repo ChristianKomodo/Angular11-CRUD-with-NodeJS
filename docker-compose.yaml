@@ -10,6 +10,10 @@ services:
   server: #name of the second service
     build: server # specify the directory of the Dockerfile
     ports:
+<<<<<<< Updated upstream
       - "5000:5000" #specify ports forewarding
+=======
+      - '4002:4002' #specify ports forewarding
+>>>>>>> Stashed changes
     container_name: server-container
     restart: always

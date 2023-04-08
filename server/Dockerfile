@@ -17,7 +17,11 @@ RUN npm install
 COPY . /usr/src/app
 
 # Expose the port the app runs in
+<<<<<<< Updated upstream
 EXPOSE 5000
+=======
+EXPOSE 4002
+>>>>>>> Stashed changes
 
 # Serve the app
 CMD ["npm", "start"]

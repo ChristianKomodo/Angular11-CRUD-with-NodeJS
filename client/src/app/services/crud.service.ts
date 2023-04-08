@@ -10,7 +10,11 @@ import { Book } from '../models/Book';
 export class CrudService {
 
   // Node/Express API
+<<<<<<< Updated upstream
   REST_API: string = 'http://localhost:5000/books';
+=======
+  REST_API: string = 'http://localhost:4002/books';
+>>>>>>> Stashed changes
 
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');

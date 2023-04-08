@@ -1,0 +1,38 @@
+<h1>Sign Up</h1>
+<p>Create an account with your email and password.</p>
+
+<form [formGroup]="signupForm" (submit)="onSignUp()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" formControlName="email" />
+    <div
+      *ngIf="
+        signupForm.get('email').invalid &&
+        (signupForm.get('email').dirty || signupForm.get('email').touched)
+      "
+    >
+      <div *ngIf="signupForm.get('email').errors.required" class="error">
+        Email is required.
+      </div>
+      <div *ngIf="signupForm.get('email').errors.email" class="error">
+        Invalid email format.
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+    <div
+      *ngIf="
+        signupForm.get('password').invalid &&
+        (signupForm.get('password').dirty || signupForm.get('password').touched)
+      "
+    >
+      <div *ngIf="signupForm.get('password').errors.required" class="error">
+        Password is required.
+      </div>
+    </div>
+  </div>
+  <br />
+  <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+</form>
